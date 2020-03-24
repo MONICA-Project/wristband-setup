@@ -83,7 +83,6 @@ Use basestation-[number]
 /etc/hosts
 ```
 reboot
-```
 
 # Disable IPv6
 add to /etc/sysctl.conf:
