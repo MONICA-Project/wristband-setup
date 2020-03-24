@@ -224,7 +224,30 @@ exec java -Xmx256m -Djava.net.preferIPv4Stack=true -Dorg.osgi.framework.system.p
 end script
 ```
 
-## Deployment
+## Configuring the server software: Supercoordinator
+
+The data that is collected from the wristbands by the base stations in the field are in turn send to the software running on a local server or laptop called the Supercoordinator. This software is running, among other things, the algorithm for determining the location of the wristbands. In addition it is responsible for integrating with the MONICA Cloud via the SCRAL layer.
+
+# Configuration
+A couple of configuration files need to be present in the configuration (load/) folder on the server:
+
+com.dexels.everywear.external.monica.position.cgf:
+```
+endpoint=http://monappdwp3.monica-cloud.eu:8440/scral/v1.0/wristband-gw/wearable/localization
+method=put
+```
+
+com.dexels.everywear.external.monica.status.cgf:
+```
+endpoint=http://monappdwp3.monica-cloud.eu:8440/scral/v1.0/wristband-gw/wearable
+method=post
+```
+
+com.dexels.everywear.external.monica.wristbandconnect.cfg:
+```
+endpoint=http://monappdwp3.monica-cloud.eu:8440/scral/v1.0/wristband-gw/friend-connect
+method=put
+```
 
 ## Development
 <!-- Developer instructions. -->
